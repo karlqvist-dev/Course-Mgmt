@@ -13,11 +13,10 @@ public class Course {
 	private HashMap<String, Assessment> courseAssessments = new HashMap<String, Assessment>();
 	private HashMap<String, Student> courseStudents = new HashMap<String, Student>();
 	
-	public Course(String courseID, String name, Teacher teacher, CourseCurriculum courseCurriculum) {
+	public Course(String courseID, String name, Teacher teacher) {
 		this.courseID = courseID;
 		this.name = name;
 		this.teacher = teacher;
-		this.courseCurriculum = courseCurriculum;
 	}
 	
 	public String getCourseID() {

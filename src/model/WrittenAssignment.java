@@ -4,8 +4,8 @@ public class WrittenAssignment extends Assessment {
 
 	private String dueDate;
 	
-	public WrittenAssignment(String testID, String subDate, String dueDate) {
-		super(testID, subDate);
+	public WrittenAssignment(String testID, String subDate, Teacher teacher, Course course, String dueDate) {
+		super(testID, subDate, teacher, course);
 		this.dueDate = dueDate;
 	}
 

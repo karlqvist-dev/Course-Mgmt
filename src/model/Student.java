@@ -13,7 +13,7 @@ public class Student {
 
 	//ArrayList to hold grades
 	private ArrayList<Grade> studentGrades = new ArrayList<Grade>();
-	
+	//HashMap to hold courses
 	private HashMap<String, Course> courses = new HashMap<String, Course>();
 	
 	public void addGrade(Grade grade) {
@@ -69,6 +69,14 @@ public class Student {
 
 	public void setStudentGrades(ArrayList<Grade> studentGrades) {
 		this.studentGrades = studentGrades;
+	}
+
+	public HashMap<String, Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(HashMap<String, Course> courses) {
+		this.courses = courses;
 	}
 
 	

@@ -8,12 +8,17 @@ public abstract class Assessment {
 	private String subDate;
 	private String testID;
 	
+	private Teacher teacher;
+	private Course course;
+	
 	//ArrayList to hold grades
 	private ArrayList<Grade> assessmentGrades = new ArrayList<Grade>();
 
-	public Assessment(String testID, String subDate) {
+	public Assessment(String testID, String subDate, Teacher teacher, Course course) {
 		this.testID = testID;
 		this.subDate = subDate;
+		this.teacher = teacher;
+		this.course = course;
 	}
 	
 	
@@ -62,6 +67,36 @@ public abstract class Assessment {
 
 	public void setAssessmentGrades(ArrayList<Grade> assessmentGrades) {
 		this.assessmentGrades = assessmentGrades;
+	}
+
+
+	public String getTestID() {
+		return testID;
+	}
+
+
+	public void setTestID(String testID) {
+		this.testID = testID;
+	}
+
+
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
+
+	public Course getCourse() {
+		return course;
+	}
+
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 }
