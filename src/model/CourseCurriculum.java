@@ -18,14 +18,36 @@ public class CourseCurriculum {
 		learningGoals.add("Learning goal: " + goal);
 	}
 	
-	//TODO printGoals()
-
-	public ArrayList<String> getLearningGoal() {
-		return this.learningGoals;
+	public void printGoals() {
+		for(String strTmp : learningGoals) {
+			System.out.println(strTmp + "\n");
+		}
 	}
 
-	public void setLearningGoal(ArrayList<String> learningGoal) {
-		this.learningGoals = learningGoal;
+
+	public ArrayList<String> getLearningGoals() {
+		return learningGoals;
 	}
+
+	public void setLearningGoals(ArrayList<String> learningGoals) {
+		this.learningGoals = learningGoals;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+	
 
 }

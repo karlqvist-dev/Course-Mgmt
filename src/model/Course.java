@@ -4,19 +4,45 @@ import java.util.HashMap;
 
 public class Course {
 
-	private String courseID;
+	private String courseID; //Unique identifier
 	private String name;
 
 	private Teacher teacher;
 	private CourseCurriculum courseCurriculum;
 	
-	private HashMap<String, Assessment> courseAssessments = new HashMap<String, Assessment>();
-	private HashMap<String, Student> courseStudents = new HashMap<String, Student>();
+	private HashMap<String, Assessment> assessments = new HashMap<String, Assessment>();
+	private HashMap<String, Student> students = new HashMap<String, Student>();
 	
-	public Course(String courseID, String name, Teacher teacher) {
-		this.courseID = courseID;
+	private static int courseIDCount = 5000;
+	
+
+	public Course(String name, Teacher teacher) {
 		this.name = name;
 		this.teacher = teacher;
+		this.courseID = Course.generateCourseID();
+	}
+	
+	public void addStudent(String studentID, Student student) {
+		students.put(studentID, student);
+	}
+	
+	public Student findStudent(String studentID) {
+		return students.get(studentID);
+	}
+	
+	public Student removeStudent(String studentID) {
+		return students.remove(studentID);
+	}
+	
+	public void addAssessment(String testID, Assessment assessment) {
+		assessments.put(testID, assessment);
+	}
+	public Assessment findAssessment(String testID) {
+		return assessments.get(testID);
+	}
+	
+	public Assessment removeAssessment(String testID) {
+		return assessments.remove(testID);
 	}
 	
 	public String getCourseID() {
@@ -51,21 +77,36 @@ public class Course {
 		this.courseCurriculum = courseCurriculum;
 	}
 
-	public HashMap<String, Assessment> getCourseAssessments() {
-		return courseAssessments;
+	public HashMap<String, Assessment> getAssessments() {
+		return assessments;
 	}
 
-	public void setCourseAssessments(HashMap<String, Assessment> courseAssessments) {
-		this.courseAssessments = courseAssessments;
+	public void setAssessments(HashMap<String, Assessment> assessments) {
+		this.assessments = assessments;
 	}
 
-	public HashMap<String, Student> getCourseStudents() {
-		return courseStudents;
+	public HashMap<String, Student> getStudents() {
+		return students;
 	}
 
-	public void setCourseStudents(HashMap<String, Student> courseStudents) {
-		this.courseStudents = courseStudents;
+	public void setStudents(HashMap<String, Student> students) {
+		this.students = students;
 	}
 	
+	public static int getCourseIDCount() {
+		return courseIDCount;
+	}
 
+	public static void setCourseIDCount(int courseIDCount) {
+		Course.courseIDCount = courseIDCount;
+	}
+	//This method generates a courseID based on the value of the static courseIDCount variable
+	public static String generateCourseID() {
+		if(courseIDCount <= 9999) {
+		String strTmp = "C" + Course.courseIDCount;
+		courseIDCount++;
+		return strTmp;
+		}
+		return null;
+	}
 }

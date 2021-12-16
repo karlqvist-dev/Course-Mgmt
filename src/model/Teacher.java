@@ -5,20 +5,56 @@ import java.util.HashMap;
 
 public class Teacher {
 
-	//ssNbr is not a unique identifier
-	private String ssNbr;
-	//employeeNbr is the unique identifier
-	private String employeeNbr;
+	private String ssNbr; //ssNbr is not a unique identifier
 	private String name;
+	private String employeeNbr; //employeeNbr is the unique identifier
 	
+	//ArrayList to hold multiple course curricula
 	private ArrayList<CourseCurriculum> curricula = new ArrayList<CourseCurriculum>();
+	//HashMap to hold courses
 	private HashMap<String, Course> taughtCourses = new HashMap<String, Course>();
 
+	private static int empNbrCount = 1000;
 	
-	public Teacher(String ssNbr, String employeeNbr, String name) {
+	public Teacher(String ssNbr, String name) {
 		this.ssNbr = ssNbr;
-		this.employeeNbr = employeeNbr;
 		this.name = name;
+		this.employeeNbr = Teacher.generateEmployeeNbr();
+	}
+	//Method to add a CourseCurriculum object to the AL
+	public void addCurriculum(CourseCurriculum curriculum) {
+		curricula.add(curriculum);
+	}
+	//Method to find a CourseCurriculum object in the AL
+	public CourseCurriculum findCurriculum(String courseID) {
+		for(CourseCurriculum ccTmp : curricula) {
+			if(ccTmp.getCourse().getCourseID().equals(courseID)) {
+				return ccTmp;
+			}
+		}
+		return null;
+	}
+	//Method to remove a CourseCurriculum object from the AL
+	public CourseCurriculum removeCurriculum(String courseID) {
+		int i = 0;
+		for(CourseCurriculum ccTmp : curricula) {
+			if(ccTmp.getCourse().getCourseID().equals(courseID)) {
+				curricula.remove(i);
+				return ccTmp;
+			}
+			i++;
+		}
+		return null;
+	}
+	
+	public void addCourse(String courseID, Course course) {
+		taughtCourses.put(courseID, course);
+	}
+	public Course findCourse(String courseID) {
+		return taughtCourses.get(courseID);
+	}
+	public Course removeCourse(String courseID) {
+		return taughtCourses.remove(courseID);
 	}
 	
 	public String getSsNbr() {
@@ -60,5 +96,23 @@ public class Teacher {
 	public void setTaughtCourses(HashMap<String, Course> taughtCourses) {
 		this.taughtCourses = taughtCourses;
 	}
+	
+	
+	
+	public static int getEmpNbrCount() {
+		return empNbrCount;
+	}
+	public static void setEmpNbrCount(int empNbrCount) {
+		Teacher.empNbrCount = empNbrCount;
+	}
 
+	//This method generates an employee number according to the format "EMPXXXX", where the X:es represent an integer value starting at 1000.
+	public static String generateEmployeeNbr() {
+		if(empNbrCount <= 9999) {
+		String strTmp = "EMP" + Teacher.empNbrCount;
+		Teacher.empNbrCount++;
+		return strTmp;
+		}
+		return null;
+	}
 }
