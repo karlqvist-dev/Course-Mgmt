@@ -2,9 +2,11 @@ package test;
 
 import model.Course;
 import model.CourseCurriculum;
+import model.Exam;
 import model.Student;
 import model.Teacher;
 import model.TeacherCatalog;
+import model.WrittenAssignment;
 
 public class Test {
 
@@ -73,7 +75,65 @@ public class Test {
 		
 		
 		Student s1 = new Student("990327-9412", "Luana Boshers");
+		s1.addCourse(c1.getCourseID(), c1);
+		c1.addStudent(s1.getStudentNbr(), s1);
+		s1.addCourse(c2.getCourseID(), c2);
+		c2.addStudent(s1.getStudentNbr(), s1);
 		
+		Student s2 = new Student("890118-8125", "Ben Evenstad");
+		s2.addCourse(c1.getCourseID(), c1);
+		c1.addStudent(s2.getStudentNbr(), s2);
+		s2.addCourse(c2.getCourseID(), c2);
+		c2.addStudent(s2.getStudentNbr(), s2);
+		
+		Student s3 = new Student("810722-2467", "Heriberto Amory");
+		s3.addCourse(c3.getCourseID(), c3);
+		c3.addStudent(s3.getStudentNbr(), s3);
+		s3.addCourse(c4.getCourseID(), c4);
+		c4.addStudent(s3.getStudentNbr(), s3);
+		
+		Student s4 = new Student("010917-5246", "Patricia Cessna");
+		s4.addCourse(c3.getCourseID(), c3);
+		c3.addStudent(s4.getStudentNbr(), s4);
+		s4.addCourse(c4.getCourseID(), c4);
+		c4.addStudent(s4.getStudentNbr(), s4);
+		
+		Student s5 = new Student("980304-6524", "Dori Delorenzo");
+		s5.addCourse(c5.getCourseID(), c5);
+		c5.addStudent(s5.getStudentNbr(), s5);
+		s5.addCourse(c6.getCourseID(), c6);
+		c6.addStudent(s5.getStudentNbr(), s5);
+		
+		Student s6 = new Student("920202-7554", "Patrick Philpot");
+		s6.addCourse(c5.getCourseID(), c5);
+		c5.addStudent(s6.getStudentNbr(), s6);
+		s6.addCourse(c6.getCourseID(), c6);
+		c6.addStudent(s6.getStudentNbr(), s6);
+		
+		Student s7 = new Student("961129-2749", "Maurine Milos");
+		s7.addCourse(c1.getCourseID(), c1);
+		c1.addStudent(s7.getStudentNbr(), s7);
+		s7.addCourse(c2.getCourseID(), c2);
+		c2.addStudent(s7.getStudentNbr(), s7);
+		
+		Student s8 = new Student("841111-8385", "Mildred Nevius");
+		s8.addCourse(c3.getCourseID(), c3);
+		c3.addStudent(s8.getStudentNbr(), s8);
+		s8.addCourse(c4.getCourseID(), c4);
+		c4.addStudent(s8.getStudentNbr(), s8);
+		
+		Exam ex1 = new Exam("2022-05-05", c1, c1.getTeacher(), 120);
+		
+		Exam ex2 = new Exam("2022-06-01", c2, c2.getTeacher(), 180);
+		
+		Exam ex3 = new Exam("2022-01-17", c3, c3.getTeacher(), 240);
+		
+		WrittenAssignment wa1 = new WrittenAssignment("2022-02-04", c4, c4.getTeacher());
+		
+		System.out.println(ex1.getTestID());
+		System.out.println(ex2.getTestID());
+		System.out.println(ex3.getTestID());
+		System.out.println(wa1.getTestID());
 		
 		//Variable nullification
 		tea1 = null;

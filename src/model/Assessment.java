@@ -4,21 +4,21 @@ import java.util.ArrayList;
 
 public abstract class Assessment {
 
-	// Date of submission
-	private String subDate;
+	private String date; // Deadline
 	private String testID;
 	
 	private Teacher teacher;
 	private Course course;
 	
-	//ArrayList to hold grades
-	private ArrayList<Grade> assessmentGrades = new ArrayList<Grade>();
-
-	public Assessment(String testID, String subDate, Teacher teacher, Course course) {
-		this.testID = testID;
-		this.subDate = subDate;
+	private ArrayList<Grade> assessmentGrades = new ArrayList<Grade>(); //ArrayList to hold grades
+	
+	private static int testIDCount = 100;
+	
+	public Assessment(String date, Course course, Teacher teacher) {
+		this.date = date;
 		this.teacher = teacher;
 		this.course = course;
+		this.testID = Assessment.generateTestID();
 	}
 	
 	
@@ -45,20 +45,12 @@ public abstract class Assessment {
 		return null;
 	}
 	
-	public String getSubDate() {
-		return this.subDate;
+	public String getDate() {
+		return this.date;
 	}
 
-	public void setSubDate(String subDate) {
-		this.subDate = subDate;
-	}
-
-	public String getTestId() {
-		return this.testID;
-	}
-
-	public void setTestId(String testId) {
-		this.testID = testId;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public ArrayList<Grade> getAssessmentGrades() {
@@ -97,6 +89,24 @@ public abstract class Assessment {
 
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+	
+	public static int getTestIDCount() {
+		return testIDCount;
+	}
+
+
+	public static void setTestIDCount(int testIDCount) {
+		Assessment.testIDCount = testIDCount;
+	}
+	//This method generates a test ID for the assessment using the testIDCount variable
+	public static String generateTestID() {
+		if(testIDCount <= 999) {
+			String strTmp = "T" + testIDCount;
+			testIDCount++;
+			return strTmp;
+		}
+		return null;
 	}
 
 }

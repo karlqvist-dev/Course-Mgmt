@@ -4,8 +4,8 @@ public class Exam extends Assessment {
 
 	private int maxMinutes;
 
-	public Exam(String testID, String subDate, Teacher teacher, Course course, int maxMinutes) {
-		super(testID, subDate, teacher, course);
+	public Exam(String date, Course course, Teacher teacher, int maxMinutes) {
+		super(date, course, teacher);
 		this.maxMinutes = maxMinutes;
 	}
 	
