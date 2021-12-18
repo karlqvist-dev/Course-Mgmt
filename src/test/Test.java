@@ -3,6 +3,7 @@ package test;
 import model.Course;
 import model.CourseCurriculum;
 import model.Exam;
+import model.Grade;
 import model.Student;
 import model.Teacher;
 import model.TeacherCatalog;
@@ -123,17 +124,100 @@ public class Test {
 		c4.addStudent(s8.getStudentNbr(), s8);
 		
 		Exam ex1 = new Exam("2022-05-05", c1, c1.getTeacher(), 120);
+		c1.addAssessment(ex1.getTestID(), ex1);
+		c1.getTeacher().addAssessment(ex1.getTestID(), ex1);
 		
 		Exam ex2 = new Exam("2022-06-01", c2, c2.getTeacher(), 180);
+		c2.addAssessment(ex2.getTestID(), ex2);
+		c2.getTeacher().addAssessment(ex2.getTestID(), ex2);
 		
 		Exam ex3 = new Exam("2022-01-17", c3, c3.getTeacher(), 240);
+		c3.addAssessment(ex3.getTestID(), ex3);
+		c3.getTeacher().addAssessment(ex3.getTestID(), ex3);
 		
 		WrittenAssignment wa1 = new WrittenAssignment("2022-02-04", c4, c4.getTeacher());
+		c4.addAssessment(wa1.getTestID(), wa1);
+		wa1.getTeacher().addAssessment(wa1.getTestID(), wa1);
+		
+		WrittenAssignment wa2 = new WrittenAssignment("2022-02-04", c5, c5.getTeacher());
+		c5.addAssessment(wa2.getTestID(), wa2);
+		wa2.getTeacher().addAssessment(wa2.getTestID(), wa2);
+		
+		WrittenAssignment wa3 = new WrittenAssignment("2022-02-04", c6, c6.getTeacher());
+		c6.addAssessment(wa3.getTestID(), wa3);
+		wa3.getTeacher().addAssessment(wa3.getTestID(), wa3);
+		
+		Grade g1 = new Grade(ex1, s1, 6);
+		ex1.addGrade(g1);
+		s1.addGrade(g1);
+		
+		Grade g2 = new Grade(ex2, s1, 4);
+		ex2.addGrade(g2);
+		s1.addGrade(g2);
+		
+		Grade g3 = new Grade(ex1, s2, 2);
+		ex1.addGrade(g3);
+		s2.addGrade(g3);
+		
+		Grade g4 = new Grade(ex2, s2, 3);
+		ex2.addGrade(g4);
+		s4.addGrade(g4);
+		
+		Grade g5 = new Grade(ex3, s3, 4);
+		ex3.addGrade(g5);
+		s3.addGrade(g5);
+		
+		Grade g6 = new Grade(wa1, s3, 4);
+		ex3.addGrade(g6);
+		s3.addGrade(g6);
+		
+		Grade g7 = new Grade(ex3, s4, 5);
+		ex3.addGrade(g7);
+		ex3.addGrade(g7);
+		
+		Grade g8 = new Grade(wa1, s4, 6);
+		wa1.addGrade(g8);
+		s4.addGrade(g8);
+		
+		Grade g9 = new Grade(wa2, s5, 3);
+		wa2.addGrade(g9);
+		s5.addGrade(g9);
+		
+		Grade g10 = new Grade(wa3, s5, 3);
+		wa3.addGrade(g10);
+		s5.addGrade(g10);
+		
+		Grade g11 = new Grade(wa2, s6, 5);
+		wa2.addGrade(g11);
+		s6.addGrade(g11);
+		
+		Grade g12 = new Grade(wa3, s6, 5);
+		wa3.addGrade(g12);
+		s6.addGrade(g12);
+		
+		Grade g13 = new Grade(ex1, s7, 7);
+		ex1.addGrade(g13);
+		s7.addGrade(g13);
+		
+		Grade g14 = new Grade(ex2, s7, 1);
+		ex2.addGrade(g14);
+		s7.addGrade(g14);
+		
+		Grade g15 = new Grade(ex3, s8, 6);
+		ex3.addGrade(g15);
+		s8.addGrade(g15);
+		
+		Grade g16 = new Grade(wa1, s8, 4);
+		wa1.addGrade(g16);
+		s8.addGrade(g16);
+		
 		
 		System.out.println(ex1.getTestID());
 		System.out.println(ex2.getTestID());
 		System.out.println(ex3.getTestID());
 		System.out.println(wa1.getTestID());
+		System.out.println(wa2.getTestID());
+		System.out.println(wa3.getTestID());
 		
 		//Variable nullification
 		tea1 = null;
@@ -147,7 +231,45 @@ public class Test {
 		c5 = null;
 		c6 = null;
 		
+		cc1 = null;
+		cc2 = null;
+		cc3 = null;
+		cc4 = null;
+		cc5 = null;
+		cc6 = null;
 		
+		s1 = null;
+		s2 = null;
+		s3 = null;
+		s4 = null;
+		s5 = null;
+		s6 = null;
+		s7 = null;
+		s8 = null;
+		
+		ex1 = null;
+		ex2 = null;
+		ex3 = null;
+		wa1 = null;
+		wa2 = null;
+		wa3 = null;
+		
+		g1 = null;
+		g2 = null;
+		g3 = null;
+		g4 = null;
+		g5 = null;
+		g6 = null;
+		g7 = null;
+		g8 = null;
+		g9 = null;
+		g10 = null;
+		g11 = null;
+		g12 = null;
+		g13 = null;
+		g14 = null;
+		g15 = null;
+		g16 = null;
 	}
 
 }

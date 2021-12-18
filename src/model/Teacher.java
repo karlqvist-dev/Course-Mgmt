@@ -13,6 +13,8 @@ public class Teacher {
 	private ArrayList<CourseCurriculum> curricula = new ArrayList<CourseCurriculum>();
 	//HashMap to hold courses
 	private HashMap<String, Course> taughtCourses = new HashMap<String, Course>();
+	//HasHMap to hold assessments which this teacher object is responsible for.
+	private HashMap<String, Assessment> assessments = new HashMap<String, Assessment>();
 
 	private static int empNbrCount = 1000;
 	
@@ -56,7 +58,32 @@ public class Teacher {
 	public Course removeCourse(String courseID) {
 		return taughtCourses.remove(courseID);
 	}
+	public void addAssessment(String testID, Assessment assessment) {
+		assessments.put(testID, assessment);
+	}
+	public Assessment findAssessment(String testID) {
+		return assessments.get(testID);
+	}
+	public Assessment removeAssessment(String testID) {
+		return assessments.remove(testID);
+	}
 	
+	//This method generates an employee number according to the format "EMPXXXX", where the X:es represent an integer value starting at 1000.
+	public static String generateEmployeeNbr() {
+		if(empNbrCount <= 9999) {
+		String strTmp = "EMP" + Teacher.empNbrCount;
+		Teacher.empNbrCount++;
+		return strTmp;
+		}
+		return null;
+	}
+	//setters and getters
+	public static int getEmpNbrCount() {
+		return empNbrCount;
+	}
+	public static void setEmpNbrCount(int empNbrCount) {
+		Teacher.empNbrCount = empNbrCount;
+	}
 	public String getSsNbr() {
 		return this.ssNbr;
 	}
@@ -96,23 +123,10 @@ public class Teacher {
 	public void setTaughtCourses(HashMap<String, Course> taughtCourses) {
 		this.taughtCourses = taughtCourses;
 	}
-	
-	
-	
-	public static int getEmpNbrCount() {
-		return empNbrCount;
+	public HashMap<String, Assessment> getAssessments() {
+		return assessments;
 	}
-	public static void setEmpNbrCount(int empNbrCount) {
-		Teacher.empNbrCount = empNbrCount;
-	}
-
-	//This method generates an employee number according to the format "EMPXXXX", where the X:es represent an integer value starting at 1000.
-	public static String generateEmployeeNbr() {
-		if(empNbrCount <= 9999) {
-		String strTmp = "EMP" + Teacher.empNbrCount;
-		Teacher.empNbrCount++;
-		return strTmp;
-		}
-		return null;
+	public void setAssessments(HashMap<String, Assessment> assessments) {
+		this.assessments = assessments;
 	}
 }
