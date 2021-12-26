@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
+<TabPane fx:id="tabPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
    <tabs>
-      <Tab text="Teacher">
+      <Tab fx:id="teacherTab" text="Teacher">
          <content>
             <AnchorPane>
                <children>
@@ -23,44 +23,44 @@
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
-                                    <TextField layoutX="41.0" layoutY="54.0" prefHeight="25.0" prefWidth="171.0" />
-                                    <TextField layoutX="41.0" layoutY="111.0" prefHeight="25.0" prefWidth="171.0" />
-                                    <Button layoutX="78.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Add Teacher" />
-                                    <Button layoutX="75.0" layoutY="455.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Delete Teacher" />
+                                    <TextField fx:id="txtTName" layoutX="41.0" layoutY="54.0" prefHeight="25.0" prefWidth="171.0" />
+                                    <TextField fx:id="txtTSSN" layoutX="41.0" layoutY="111.0" prefHeight="25.0" prefWidth="171.0" />
+                                    <Button fx:id="btnAddT" layoutX="78.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnAddTClicked" prefHeight="25.0" prefWidth="95.0" text="Add Teacher" />
+                                    <Button fx:id="btnDelT" layoutX="75.0" layoutY="455.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Delete Teacher" />
                                     <Label layoutX="109.0" layoutY="37.0" text="Name" />
                                     <Label layoutX="69.0" layoutY="94.0" text="Social Security Number" />
-                                    <Label layoutX="46.0" layoutY="79.0" text="Label" textFill="RED">
+                                    <Label fx:id="lblErrMsgTName" layoutX="46.0" layoutY="79.0" text="Label" textFill="RED">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="46.0" layoutY="136.0" text="Label" textFill="RED">
+                                    <Label fx:id="lblErrMsgTSSN" layoutX="46.0" layoutY="136.0" text="Label" textFill="RED">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="108.0" layoutY="153.0" text="Label">
+                                    <Label fx:id="lblTConf" layoutX="108.0" layoutY="153.0" text="Label">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="52.0" layoutY="253.0" />
-                                    <TextField layoutX="52.0" layoutY="306.0" />
-                                    <TextField layoutX="52.0" layoutY="365.0" />
+                                    <TextField fx:id="txtTEmpNbr" layoutX="52.0" layoutY="253.0" />
+                                    <TextField fx:id="txtTNameNew" layoutX="52.0" layoutY="306.0" />
+                                    <TextField fx:id="txtTSSNNew" layoutX="52.0" layoutY="365.0" />
                                     <Label layoutX="98.0" layoutY="289.0" text="New Name" />
                                     <Label layoutX="51.0" layoutY="348.0" text="New Social Security Number" />
                                     <Label layoutX="77.0" layoutY="236.0" text="Employee Number" />
-                                    <Label layoutX="55.0" layoutY="278.0" text="Label" textFill="RED">
+                                    <Label fx:id="lblErrMsgTEmpNbr" layoutX="55.0" layoutY="278.0" text="Label" textFill="RED">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="55.0" layoutY="331.0" text="Label" textFill="RED">
+                                    <Label fx:id="lblErrMsgTNameNew" layoutX="55.0" layoutY="331.0" text="Label" textFill="RED">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="55.0" layoutY="389.0" text="Label" textFill="RED">
+                                    <Label fx:id="lblErrMsgTSSNNew" layoutX="55.0" layoutY="389.0" text="Label" textFill="RED">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
@@ -75,8 +75,8 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="95.0" layoutY="424.0" mnemonicParsing="false" text="Update" />
-                                    <Label layoutX="106.0" layoutY="402.0" text="Label">
+                                    <Button fx:id="btnUpdateT" layoutX="73.0" layoutY="424.0" mnemonicParsing="false" text="Update Teacher" />
+                                    <Label fx:id="lblTEditConf" layoutX="106.0" layoutY="402.0" text="Label">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -85,12 +85,12 @@
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
-                                    <TableView prefHeight="500.0" prefWidth="612.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="tvTeachers" prefHeight="500.0" prefWidth="612.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
-                                        <TableColumn prefWidth="92.0" text="Number" />
-                                        <TableColumn prefWidth="84.0" text="SSN" />
-                                          <TableColumn prefWidth="359.0" text="Name" />
-                                          <TableColumn minWidth="0.0" prefWidth="76.0" text="Courses" />
+                                        <TableColumn fx:id="tcTEmpNbr" prefWidth="92.0" text="Number" />
+                                        <TableColumn fx:id="tcTSSN" prefWidth="84.0" text="SSN" />
+                                          <TableColumn fx:id="tcTName" prefWidth="359.0" text="Name" />
+                                          <TableColumn fx:id="tcTCourses" minWidth="0.0" prefWidth="76.0" text="Courses" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -103,7 +103,7 @@
             </AnchorPane>
          </content>
       </Tab>
-      <Tab text="Student">
+      <Tab fx:id="studentTab" text="Student">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
         </content>

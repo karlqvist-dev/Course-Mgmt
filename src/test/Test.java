@@ -6,13 +6,13 @@ import model.Exam;
 import model.Grade;
 import model.Student;
 import model.Teacher;
-import model.TeacherCatalog;
+import model.Catalog;
 import model.WrittenAssignment;
 
 public class Test {
 
 	public static void main(String[] args) {
-		TeacherCatalog tc = new TeacherCatalog();
+		Catalog tc = new Catalog();
 		
 		Teacher tea1 = new Teacher("780404-7482", "Kathleen Jenkins");
 		tc.addTeacher(tea1.getEmployeeNbr(), tea1);
