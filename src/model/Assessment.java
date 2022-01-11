@@ -45,6 +45,16 @@ public abstract class Assessment {
 		return null;
 	}
 	
+	//This method generates a test ID for the assessment using the testIDCount variable
+		public static String generateTestID() {
+			if(testIDCount <= 999) {
+				String strTmp = "T" + testIDCount;
+				testIDCount++;
+				return strTmp;
+			}
+			return null;
+		}
+	//getters and setters
 	public String getDate() {
 		return this.date;
 	}
@@ -98,15 +108,6 @@ public abstract class Assessment {
 
 	public static void setTestIDCount(int testIDCount) {
 		Assessment.testIDCount = testIDCount;
-	}
-	//This method generates a test ID for the assessment using the testIDCount variable
-	public static String generateTestID() {
-		if(testIDCount <= 999) {
-			String strTmp = "T" + testIDCount;
-			testIDCount++;
-			return strTmp;
-		}
-		return null;
 	}
 
 }
