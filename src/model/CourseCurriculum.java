@@ -7,11 +7,9 @@ public class CourseCurriculum {
 	private ArrayList<String> learningGoals = new ArrayList<String>();
 	
 	Course course;
-	Teacher teacher;
 	
-	public CourseCurriculum(Course course, Teacher teacher) {
+	public CourseCurriculum(Course course) {
 		this.course = course;
-		this.teacher = teacher;
 	}
 	
 	public void addGoal(String goal) {
@@ -40,14 +38,4 @@ public class CourseCurriculum {
 	public void setCourse(Course course) {
 		this.course = course;
 	}
-
-	public Teacher getTeacher() {
-		return teacher;
-	}
-
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
-	}
-	
-
 }

@@ -5,15 +5,20 @@ import model.CourseCurriculum;
 import model.Exam;
 import model.Grade;
 import model.Student;
+import model.StudentCatalog;
 import model.Teacher;
-import model.Catalog;
+import model.TeacherCatalog;
 import model.WrittenAssignment;
 
 public class Test {
 
-	public static void main(String[] args) {
-		Catalog tc = new Catalog();
-		
+	private static TeacherCatalog tc = new TeacherCatalog();
+	private static StudentCatalog sc = new StudentCatalog();
+
+	public static void generateTestData() {
+
+		System.out.println("Generating test data...");
+
 		Teacher tea1 = new Teacher("780404-7482", "Kathleen Jenkins");
 		tc.addTeacher(tea1.getEmployeeNbr(), tea1);
 		
@@ -40,34 +45,34 @@ public class Test {
 		tea3.addCourse(c6.getCourseID(), c6);
 		
 		
-		CourseCurriculum cc1 = new CourseCurriculum(c1, tea1);
+		CourseCurriculum cc1 = new CourseCurriculum(c1);
 		cc1.addGoal("Capital cities");
 		cc1.addGoal("Biomes");
 		cc1.addGoal("Terrain elevation");
 		
-		CourseCurriculum cc2 = new CourseCurriculum(c2, tea1);
+		CourseCurriculum cc2 = new CourseCurriculum(c2);
 		cc2.addGoal("IP subnetting");
 		cc2.addGoal("VLAN configuration");
 		cc2.addGoal("Routing");
 		cc2.addGoal("Physical troubleshooting");
 		
-		CourseCurriculum cc3 = new CourseCurriculum(c3, tea2);
+		CourseCurriculum cc3 = new CourseCurriculum(c3);
 		cc3.addGoal("Techincal analysis");
 		cc3.addGoal("Stop loss");
 		cc3.addGoal("Fundamental analysis");
 		
-		CourseCurriculum cc4 = new CourseCurriculum(c4, tea2);
+		CourseCurriculum cc4 = new CourseCurriculum(c4);
 		cc4.addGoal("Watering technique");
 		cc4.addGoal("Fertilization");
 		cc4.addGoal("Composting");
 		cc4.addGoal("Tool knowledge");
 		
-		CourseCurriculum cc5 = new CourseCurriculum(c5, tea3);
+		CourseCurriculum cc5 = new CourseCurriculum(c5);
 		cc5.addGoal("60's literature");
 		cc5.addGoal("70's literature");
 		cc5.addGoal("Knowledge of cultural context");
 		
-		CourseCurriculum cc6 = new CourseCurriculum(c6, tea3);
+		CourseCurriculum cc6 = new CourseCurriculum(c6);
 		cc6.addGoal("Industrial applications");
 		cc6.addGoal("Nanoscale technology");
 		cc6.addGoal("Interdisciplinary engineering");
@@ -80,48 +85,56 @@ public class Test {
 		c1.addStudent(s1.getStudentNbr(), s1);
 		s1.addCourse(c2.getCourseID(), c2);
 		c2.addStudent(s1.getStudentNbr(), s1);
+		sc.addStudent(s1.getStudentNbr(), s1);
 		
 		Student s2 = new Student("890118-8125", "Ben Evenstad");
 		s2.addCourse(c1.getCourseID(), c1);
 		c1.addStudent(s2.getStudentNbr(), s2);
 		s2.addCourse(c2.getCourseID(), c2);
 		c2.addStudent(s2.getStudentNbr(), s2);
+		sc.addStudent(s2.getStudentNbr(), s2);
 		
 		Student s3 = new Student("810722-2467", "Heriberto Amory");
 		s3.addCourse(c3.getCourseID(), c3);
 		c3.addStudent(s3.getStudentNbr(), s3);
 		s3.addCourse(c4.getCourseID(), c4);
 		c4.addStudent(s3.getStudentNbr(), s3);
+		sc.addStudent(s3.getStudentNbr(), s3);
 		
 		Student s4 = new Student("010917-5246", "Patricia Cessna");
 		s4.addCourse(c3.getCourseID(), c3);
 		c3.addStudent(s4.getStudentNbr(), s4);
 		s4.addCourse(c4.getCourseID(), c4);
 		c4.addStudent(s4.getStudentNbr(), s4);
+		sc.addStudent(s4.getStudentNbr(), s4);
 		
 		Student s5 = new Student("980304-6524", "Dori Delorenzo");
 		s5.addCourse(c5.getCourseID(), c5);
 		c5.addStudent(s5.getStudentNbr(), s5);
 		s5.addCourse(c6.getCourseID(), c6);
 		c6.addStudent(s5.getStudentNbr(), s5);
+		sc.addStudent(s5.getStudentNbr(), s5);
 		
 		Student s6 = new Student("920202-7554", "Patrick Philpot");
 		s6.addCourse(c5.getCourseID(), c5);
 		c5.addStudent(s6.getStudentNbr(), s6);
 		s6.addCourse(c6.getCourseID(), c6);
 		c6.addStudent(s6.getStudentNbr(), s6);
+		sc.addStudent(s6.getStudentNbr(), s6);
 		
 		Student s7 = new Student("961129-2749", "Maurine Milos");
 		s7.addCourse(c1.getCourseID(), c1);
 		c1.addStudent(s7.getStudentNbr(), s7);
 		s7.addCourse(c2.getCourseID(), c2);
 		c2.addStudent(s7.getStudentNbr(), s7);
+		sc.addStudent(s7.getStudentNbr(), s7);
 		
 		Student s8 = new Student("841111-8385", "Mildred Nevius");
 		s8.addCourse(c3.getCourseID(), c3);
 		c3.addStudent(s8.getStudentNbr(), s8);
 		s8.addCourse(c4.getCourseID(), c4);
 		c4.addStudent(s8.getStudentNbr(), s8);
+		sc.addStudent(s8.getStudentNbr(), s8);
 		
 		Exam ex1 = new Exam("2022-05-05", c1, c1.getTeacher(), 120);
 		c1.addAssessment(ex1.getTestID(), ex1);
@@ -269,7 +282,25 @@ public class Test {
 		g13 = null;
 		g14 = null;
 		g15 = null;
-		g16 = null;
+		g16 = null; 
+	}
+	/*-----------------Setters & getters-----------------*/
+	
+	public static TeacherCatalog getTc() {
+		return tc;
 	}
 
+	public static void setTc(TeacherCatalog tc) {
+		Test.tc = tc;
+	}
+
+	public static StudentCatalog getSc() {
+		return sc;
+	}
+
+	public static void setSc(StudentCatalog sc) {
+		Test.sc = sc;
+	} 
+
+	
 }

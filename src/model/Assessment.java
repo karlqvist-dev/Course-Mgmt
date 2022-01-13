@@ -4,15 +4,17 @@ import java.util.ArrayList;
 
 public abstract class Assessment {
 
-	private String date; // Deadline
-	private String testID;
+	private String date; // Deadline of WrittenAssignment or date of Exam
+	private String testID; // Used as a unique Assessment identifier
 	
 	private Teacher teacher;
 	private Course course;
+
+	private final int MAX_POINTS = 100;
 	
-	private ArrayList<Grade> assessmentGrades = new ArrayList<Grade>(); //ArrayList to hold grades
+	private ArrayList<Grade> assessmentGrades = new ArrayList<Grade>(); // ArrayList to hold grades
 	
-	private static int testIDCount = 100;
+	private static int testIDCount = 1000; // The value used to generate testIDs with the generateTestID method. 
 	
 	public Assessment(String date, Course course, Teacher teacher) {
 		this.date = date;
@@ -45,16 +47,16 @@ public abstract class Assessment {
 		return null;
 	}
 	
-	//This method generates a test ID for the assessment using the testIDCount variable
-		public static String generateTestID() {
-			if(testIDCount <= 999) {
-				String strTmp = "T" + testIDCount;
-				testIDCount++;
-				return strTmp;
-			}
-			return null;
+	public static String generateTestID() { //This method generates a test ID for the assessment using the testIDCount variable
+		if(testIDCount <= 9999) {
+			String strTmp = "T" + testIDCount;
+			testIDCount++;
+			return strTmp;
 		}
-	//getters and setters
+		return null;
+	}
+
+	/*-----------------Setters & getters-----------------*/
 	public String getDate() {
 		return this.date;
 	}
@@ -108,6 +110,10 @@ public abstract class Assessment {
 
 	public static void setTestIDCount(int testIDCount) {
 		Assessment.testIDCount = testIDCount;
+	}
+
+	public int getMAX_POINTS() {
+		return MAX_POINTS;
 	}
 
 }
