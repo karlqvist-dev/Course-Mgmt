@@ -17,6 +17,9 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
+
+
+			// TODO Rewrite, after launching the main window, launch the login screen and lock the main window
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

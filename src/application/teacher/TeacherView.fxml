@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TeacherViewController">
+   <children>
+      <VBox layoutX="150.0" layoutY="100.0" prefHeight="400.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField promptText="Enter new name">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField promptText="Enter new SSN">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="20.0" />
+               </VBox.margin>
+               <opaqueInsets>
+                  <Insets bottom="20.0" />
+               </opaqueInsets>
+            </TextField>
+            <HBox prefHeight="49.0" prefWidth="400.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="106.0" prefWidth="160.0" text="Update">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="30.0" top="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="106.0" prefWidth="180.0" text="Delete">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="18.0" right="30.0" top="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <TabPane prefHeight="210.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Courses">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="400.0">
+                           <children>
+                              <TableView prefHeight="171.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="Course ID" />
+                                  <TableColumn prefWidth="252.0" text="Course Name" />
+                                    <TableColumn prefWidth="72.0" text="Students" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Assessments">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView prefHeight="171.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="Test ID" />
+                                    <TableColumn prefWidth="252.0" text="Course Name" />
+                                    <TableColumn prefWidth="72.0" text="Students" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
