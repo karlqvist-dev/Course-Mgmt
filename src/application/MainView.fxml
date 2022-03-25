@@ -25,7 +25,7 @@
                                  <children>
                                     <TextField fx:id="txtTeacherName" layoutX="41.0" layoutY="54.0" prefHeight="25.0" prefWidth="171.0" />
                                     <TextField fx:id="txtTeacherSSN" layoutX="41.0" layoutY="111.0" prefHeight="25.0" prefWidth="171.0" />
-                                    <Button fx:id="btnTeacherAdd" layoutX="78.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Add Teacher" />
+                                    <Button fx:id="btnTeacherAdd" layoutX="78.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnAddTClicked" prefHeight="25.0" prefWidth="95.0" text="Add Teacher" />
                                     <Label layoutX="109.0" layoutY="37.0" text="Name" />
                                     <Label layoutX="69.0" layoutY="94.0" text="Social Security Number" />
                                     <Label fx:id="lblErrMsgTeacherName" layoutX="46.0" layoutY="79.0" text="Label" textFill="RED">

@@ -63,8 +63,14 @@ public class MainViewController implements Initializable {
 		
 		refreshGUI();
 	}
+
 	
-	
+	public void btnAddTClicked() {
+		Teacher newTeacher = new Teacher(txtTeacherSSN.getText(), txtTeacherName.getText());
+		teacherCat.addTeacher(newTeacher.getSsNbr(), newTeacher);
+		this.refreshGUI();
+	}
+
 	public void refreshGUI() {
 		observableTeachers.clear();
 		for(HashMap.Entry<String, Teacher> entry : teacherCat.getTeacherRegistry().entrySet()) {
@@ -73,12 +79,6 @@ public class MainViewController implements Initializable {
 		}
 		tableViewTeachers.setItems(observableTeachers);
 		tableViewTeachers.getSortOrder().add(tableColEmpNbr);
-	}
-	
-	public void btnAddTClicked() {
-		Teacher newTeacher = new Teacher(txtTeacherSSN.getText(), txtTeacherName.getText());
-		teacherCat.addTeacher(newTeacher.getSsNbr(), newTeacher);
-		this.refreshGUI();
 	}
 
 	/*-----------------Setters & getters-----------------*/
