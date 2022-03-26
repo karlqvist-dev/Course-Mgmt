@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	// TODO After launching the main window, launch the login screen and lock the main window
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -17,9 +19,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
-
-
-			// TODO Rewrite, after launching the main window, launch the login screen and lock the main window
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

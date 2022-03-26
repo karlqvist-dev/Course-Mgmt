@@ -1,6 +1,7 @@
 package model;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Teacher {
 
@@ -19,6 +20,14 @@ public class Teacher {
 		this.employeeNbr = Teacher.generateEmployeeNbr();
 	}
 	
+	public void nullify() { //Clears all associations, this method is used when removing a teacher object. The taught course retains the teacher value to keep history.
+		this.assessments.clear();
+		for (Map.Entry<String, Assessment> entry : this.assessments.entrySet()) {
+			entry.getValue().setTeacher(null);
+		}
+		this.taughtCourses.clear();
+	}
+
 	public void addCourse(String courseID, Course course) {
 		taughtCourses.put(courseID, course);
 	}

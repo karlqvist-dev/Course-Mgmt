@@ -12,17 +12,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TeacherViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.teacher.TeacherViewController">
    <children>
       <VBox layoutX="150.0" layoutY="100.0" prefHeight="400.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField promptText="Enter new name">
+            <TextField fx:id="txtTeacherNameUpdate" promptText="Enter new name">
                <VBox.margin>
                   <Insets left="30.0" right="30.0" top="20.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Enter new SSN">
+            <TextField fx:id="txtTeacherSSNUpdate" promptText="Enter new SSN">
                <VBox.margin>
                   <Insets left="30.0" right="30.0" top="20.0" />
                </VBox.margin>
@@ -38,7 +37,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="106.0" prefWidth="160.0" text="Update">
+                  <Button fx:id="btnTeacherUpdate" mnemonicParsing="false" prefHeight="106.0" prefWidth="160.0" text="Update Teacher">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -46,7 +45,7 @@
                         <Insets bottom="20.0" left="30.0" top="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="106.0" prefWidth="180.0" text="Delete">
+                  <Button fx:id="btnSelectionRemove" mnemonicParsing="false" prefHeight="106.0" prefWidth="180.0" text="Remove Selected">
                      <HBox.margin>
                         <Insets bottom="20.0" left="18.0" right="30.0" top="20.0" />
                      </HBox.margin>
@@ -58,30 +57,30 @@
             </HBox>
             <TabPane prefHeight="210.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Courses">
+                <Tab fx:id="courseTab" text="Courses">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="400.0">
                            <children>
-                              <TableView prefHeight="171.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="tableViewCourses" prefHeight="171.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="Course ID" />
-                                  <TableColumn prefWidth="252.0" text="Course Name" />
-                                    <TableColumn prefWidth="72.0" text="Students" />
+                                  <TableColumn fx:id="tableColCourseID" prefWidth="75.0" text="Course ID" />
+                                  <TableColumn fx:id="tableColCourseName" prefWidth="252.0" text="Course Name" />
+                                    <TableColumn fx:id="tableColCourseStudents" prefWidth="72.0" text="Students" />
                                 </columns>
                               </TableView>
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Assessments">
+                <Tab fx:id="assessmentTab" text="Assessments">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <TableView prefHeight="171.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columns>
                                     <TableColumn prefWidth="75.0" text="Test ID" />
-                                    <TableColumn prefWidth="252.0" text="Course Name" />
-                                    <TableColumn prefWidth="72.0" text="Students" />
+                                    <TableColumn prefWidth="252.0" />
+                                    <TableColumn prefWidth="72.0" />
                                  </columns>
                               </TableView>
                            </children>

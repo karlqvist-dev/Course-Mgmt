@@ -41,6 +41,7 @@ public class MainViewController implements Initializable {
 	@FXML private Label lblTeacherConfirm;
 	
 	@FXML private Button btnTeacherAdd;
+	@FXML private Button btnTeacherRemove;
 	
 	@FXML private TableView<Teacher> tableViewTeachers;
 	@FXML private TableColumn<Teacher, String> tableColEmpNbr;
@@ -64,11 +65,16 @@ public class MainViewController implements Initializable {
 		refreshGUI();
 	}
 
-	
 	public void btnAddTClicked() {
 		Teacher newTeacher = new Teacher(txtTeacherSSN.getText(), txtTeacherName.getText());
 		teacherCat.addTeacher(newTeacher.getSsNbr(), newTeacher);
 		this.refreshGUI();
+	}
+
+	public void btnRemoveTClicked() {
+		teacherCat.removeTeacher(tableViewTeachers.getSelectionModel().getSelectedItem().getEmployeeNbr());
+		tableViewTeachers.getSelectionModel().getSelectedItem().nullify();
+		refreshGUI();
 	}
 
 	public void refreshGUI() {
